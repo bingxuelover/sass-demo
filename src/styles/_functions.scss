@@ -1,1 +1,28 @@
-// There are no function examples here :(
+// for if each
+@for $i from 0 through 10 {
+  .line-#{$i} {
+    font-size: 20 - $i * 2 + px;
+    @if $i % 2 == 0 {
+      background-color: #d9f2e3;
+    }
+  }
+}
+
+@each $color in green, blue, purple {
+  .color-#{$color} {
+    color: $color;
+  }
+}
+
+$grid-width: 40px;
+$gutter-width: 10px;
+@function grid-width($n) {
+  @return $n * $grid-width + ($n - 1) * $gutter-width;
+}
+
+.fn {
+  li {
+    width: grid-width(3);
+    border-bottom: 1px solid gray;
+  }
+}

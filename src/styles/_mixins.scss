@@ -1,5 +1,49 @@
 @mixin shadow($color) {
-  -webkit-box-shadow: 6px 6px 40px -2px  $color;
-  -moz-box-shadow: 6px 6px 40px -2px  $color;
-  box-shadow: 6px 6px 40px -2px  $color;
+  -webkit-box-shadow: 6px 6px 40px -2px $color;
+  -moz-box-shadow: 6px 6px 40px -2px $color;
+  box-shadow: 6px 6px 40px -2px $color;
+}
+
+@mixin border-radius($px) {
+  -webkit-border-radius: $px;
+  border-radius: $px;
+}
+
+@mixin animation($name) {
+  -webkit-animation: $name;
+  animation: $name;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin transform($deg) {
+  -webkit-transform: rotate($deg);
+  transform: rotate($deg);
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+
+@include keyframes(scrollleft) {
+  0% {
+    @include transform(0);
+  }
+  25% {
+    @include transform(-90deg);
+  }
+  50% {
+    @include transform(-180deg);
+  }
+  75% {
+    @include transform(-270deg);
+  }
+  100% {
+    @include transform(-360deg);
+  }
 }

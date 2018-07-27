@@ -10,18 +10,15 @@ class App extends Component {
       userInput: '',
       list: ['cool stuff']
     }
-
-    this.handleInput = this.handleInput.bind(this);
-    this.addToList = this.addToList.bind(this);
   }
 
-  handleInput(e) {
-     this.setState({
-       userInput: e.target.value
-     })
+  handleInput = (e) => {
+    this.setState({
+      userInput: e.target.value
+    })
   }
 
-  addToList() {
+  addToList = () => {
     if(this.state.userInput) {
       this.setState({
         list: [...this.state.list, this.state.userInput],
@@ -30,33 +27,44 @@ class App extends Component {
     }
   }
 
-
   render() {
 
     const todoList = this.state.list.map((item, index) => {
-            return <Item 
-                    key={index} 
+      return <Item
+                    key={index}
+                    iclass = {`line-${index}`}
                     item={item}/>
-        })
+    })
 
-    return (
+    return(
       <div className='outer_container'>
         <h1> TO DO LIST</h1>
-      <div className="main_container">
-        <div className='input_container'>
-          <input 
-          placeholder='Add a new item...' 
-          onChange={this.handleInput} 
-          value={this.state.userInput}/>
 
-          <button onClick={this.addToList}>Add</button>
+        <span className="circle">scroll circle</span>
+
+        <div className="main_container">
+
+          <ul className="fn">
+            <li className="color-blue">color line</li>
+            <li className="color-purple">color line</li>
+            <li className="color-green">color line</li>
+          </ul>
+
+          <div className='input_container'>
+            <input
+            placeholder='Add a new item...'
+            onChange={this.handleInput}
+            value={this.state.userInput}/>
+
+            <button onClick={this.addToList}>Add</button>
+          </div>
+
+          <div className='list_container'>
+            { todoList }
+          </div>
+
         </div>
 
-        <div className='list_container'>
-          { todoList }
-        </div>
-      </div>
-        
       </div>
     );
   }

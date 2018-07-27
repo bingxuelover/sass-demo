@@ -1,18 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface:300|Open+Sans:300');
-@import 'variables';
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface:300|Open+Sans:300");
+@import "variables";
 
 h1 {
   font: {
-    family: 'Abril Fatface';
+    family: "Abril Fatface";
     size: 40px;
   }
 }
 
-
-p, a, div, button {
+p,
+a,
+div,
+button {
   font: {
-    family: 'Open Sans', sans-serif;
-    size: 16px;
+    family: "Open Sans", sans-serif;
+    size: 18px;
   }
 }
 

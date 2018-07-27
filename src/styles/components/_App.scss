@@ -1,7 +1,8 @@
-@import '../variables';
-@import '../mixins';
+@import "../variables";
+@import "../mixins";
 
 .outer_container {
+  position: relative;
   width: 450px;
   background: $dark;
   margin: 50px auto;
@@ -9,21 +10,31 @@
   h1 {
     text-align: center;
     color: $light;
-    padding: 50px 0 0 0;
+    padding: 50px 0;
   }
 }
-
+.circle {
+  position: absolute;
+  right: 50px;
+  top: 100px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100%;
+  border: 2px dashed white;
+  @include border-radius(50px);
+  @include animation(scrollleft 20s linear 1s infinite normal);
+}
 .main_container {
   width: 100%;
   background: white;
-  margin: 50px auto;
-  padding: 75px;
+  padding: 20px 75px 50px;
 }
 
 .input_container {
   width: 100%;
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 50px 0 10px;
   button {
     width: 50px;
   }
@@ -36,5 +47,5 @@
 }
 
 .list_container {
-  width: 30vw;
+  width: 22vw;
 }
